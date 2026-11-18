@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Professional HTML5 Media Studio Dashboard featuring audio, video, and iframe embeds" />
+    <meta property="og:title" content="StreamFlow - Media Studio Dashboard" />
+    <meta property="og:type" content="website" />
+    <title>StreamFlow | Pro Media Studio</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <div class="app-layout">
+      <!-- Top Navigation Bar -->
+      <header class="topbar">
+        <div class="brand">
+          <span class="logo-dot"></span>
+          <h1>StreamFlow <span class="badge">PRO</span></h1>
+        </div>
+        <a href="../" class="nav-link">&larr; Back to Portfolio</a>
+      </header>
+
+      <main class="dashboard-grid">
+        <!-- Main Featured Video Section -->
+        <section class="panel featured-video" id="cinema-stage">
+          <div class="panel-header">
+            <h2>Featured Open-Source Cinema</h2>
+            <span class="tag">HTML5 &lt;video&gt;</span>
+          </div>
+
+          <figure class="media-container">
+            <video 
+              controls 
+              loop 
+              muted 
+              poster="https://peach.blender.org/wp-content/uploads/title_anouncement.jpg?x11217"
+            >
+              <source src="https://archive.org/download/BigBuckBunny_124/Content/big_buck_bunny_720p_surround.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <figcaption class="caption">
+              <strong>Big Buck Bunny</strong> &mdash; Rendered with open-source 3D tools. Configured with <em>poster</em>, <em>controls</em>, and <em>muted</em> boolean attributes.
+            </figcaption>
+          </figure>
+
+          <!-- Technical Specs using Description List -->
+          <dl class="specs-grid">
+            <div class="spec-item">
+              <dt>Resolution</dt>
+              <dd>1280 &times; 720 (HD)</dd>
+            </div>
+            <div class="spec-item">
+              <dt>Container</dt>
+              <dd>MP4 (H.264)</dd>
+            </div>
+            <div class="spec-item">
+              <dt>License</dt>
+              <dd>Creative Commons 0</dd>
+            </div>
+          </dl>
+        </section>
+
+        <!-- Sidebar: Audio Track & YouTube Embed -->
+        <div class="sidebar-stack">
+          <!-- Audio Synth Player -->
+          <section class="panel audio-deck" id="audio-player">
+            <div class="panel-header">
+              <h2>Coding Focus Track</h2>
+              <span class="tag">Multi-Source &lt;audio&gt;</span>
+            </div>
+
+            <div class="track-info">
+              <div class="album-art">🎵</div>
+              <div>
+                <h3>Can't Stay Down</h3>
+                <p>Quincy Larson &bull; Synthwave Mix</p>
+              </div>
+            </div>
+
+            <audio controls loop>
+              <source src="https://cdn.freecodecamp.org/curriculum/js-music-player/can't-stay-down.ogg" type="audio/ogg" />
+              <source src="https://cdn.freecodecamp.org/curriculum/js-music-player/can't-stay-down.mp3" type="audio/mpeg" />
+            </audio>
+          </section>
+
+          <!-- Embedded Course via iframe -->
+          <section class="panel embed-deck" id="course-embed">
+            <div class="panel-header">
+              <h2>External Stream (Replaced Element)</h2>
+              <span class="tag">&lt;iframe&gt;</span>
+            </div>
+
+            <div class="iframe-wrapper">
+              <iframe
+                src="https://www.youtube.com/embed/PkZNo7MFNFg"
+                title="JavaScript Programming Full Course"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen
+              ></iframe>
+            </div>
+            <p class="embed-note">Embedded via inline frame with full-screen hardware acceleration enabled.</p>
+          </section>
+        </div>
+      </main>
+
+      <footer class=" studio-footer">
+        <p>Engineered by <strong>Alireza Baghbani</strong> &bull; Semantic HTML5 &amp; CSS Grid Architecture</p>
+      </footer>
+    </div>
+  </body>
+</html>
