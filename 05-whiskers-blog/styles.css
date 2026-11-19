@@ -1,0 +1,413 @@
+/* =========================================================
+   1. متغیرها و تنظیمات پایه (Dark Luxury Theme)
+   ========================================================= */
+:root {
+    --bg-body: #090b10;
+    --bg-surface: #121620;
+    --bg-surface-hover: #181e2c;
+    --bg-glass: rgba(18, 22, 32, 0.72);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --accent: #f59e0b;
+    --accent-strong: #ea580c;
+    --accent-glow: rgba(245, 158, 11, 0.32);
+    --border-subtle: rgba(255, 255, 255, 0.08);
+    --border-accent: rgba(245, 158, 11, 0.45);
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --transition: 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-body);
+    background-image:
+        radial-gradient(circle at 15% 0%, rgba(245, 158, 11, 0.14), transparent 42%),
+        radial-gradient(circle at 85% 20%, rgba(234, 88, 12, 0.08), transparent 40%);
+    color: var(--text-primary);
+    line-height: 1.75;
+    min-height: 100vh;
+    padding: clamp(1.25rem, 3vw, 2.5rem) 1.25rem 4rem;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================================
+   2. هدر فشرده، شیشه‌ای و کاریزماتیک
+   ========================================================= */
+header {
+    max-width: 1040px;
+    margin: 0 auto 2.25rem;
+    padding: clamp(1.5rem, 4vw, 2.5rem);
+    background: var(--bg-glass);
+    backdrop-filter: blur(16px);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, 0.55);
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 1.5rem;
+}
+
+header h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.75rem, 4vw, 2.9rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+    background: linear-gradient(135deg, #ffffff 35%, #fcd34d 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* قاب عکس مدرن و جمع‌وجور تا منو همیشه در دید باشد */
+figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.65rem;
+    width: 100%;
+    max-width: 440px;
+}
+
+figure img {
+    display: block;
+    width: 100%;
+    height: clamp(190px, 26vw, 250px);
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 14px 34px rgba(0, 0, 0, 0.5);
+    transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1), border-color var(--transition);
+}
+
+figure:hover img {
+    transform: scale(1.025);
+    border-color: var(--border-accent);
+}
+
+figcaption {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+/* =========================================================
+   3. منوی تب‌دار (Interactive Pill Tabs)
+   ========================================================= */
+nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul {
+    list-style: none;
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.45rem;
+    background: rgba(9, 11, 16, 0.85);
+    border: 1px solid var(--border-subtle);
+    border-radius: 999px;
+}
+
+nav a {
+    display: inline-block;
+    padding: 0.65rem 1.75rem;
+    border-radius: 999px;
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    transition: all var(--transition);
+}
+
+nav a:hover {
+    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.06);
+}
+
+/* هایلایت خودکار تب فعال بدون نیاز به جاوااسکریپت */
+body:not(:has(section:target)) nav a[href="#about"],
+body:has(#about:target) nav a[href="#about"],
+body:has(#posts:target) nav a[href="#posts"],
+body:has(#contact:target) nav a[href="#contact"] {
+    background: linear-gradient(135deg, var(--accent), var(--accent-strong));
+    color: #090b10;
+    box-shadow: 0 6px 22px var(--accent-glow);
+}
+
+/* =========================================================
+   4. موتور نمایش تک‌بخشی (Tab Switching Engine)
+   ========================================================= */
+main,
+footer {
+    max-width: 1040px;
+    margin: 0 auto;
+}
+
+/* مخفی کردن همه بخش‌ها در حالت پایه */
+main section,
+footer,
+#contact {
+    display: none;
+    scroll-margin-top: 420px;
+    /* جلوگیری از پرش اسکرول به پایین و پنهان شدن منو */
+}
+
+/* در بارگذاری اولیه (قبل از کلیک)، فقط بخش About باز باشد */
+body:not(:has(section:target)) #about {
+    display: block;
+    animation: tabReveal 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* باز شدن اختصاصی هر بخش با کلیک روی لینک آن */
+#about:target {
+    display: block;
+    animation: tabReveal 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+#posts:target {
+    display: grid;
+    animation: tabReveal 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+/* وقتی روی Contact کلیک می‌شود، main مخفی و footer نمایش داده شود */
+body:has(#contact:target) main {
+    display: none;
+}
+
+footer:has(#contact:target) {
+    display: block;
+}
+
+#contact:target {
+    display: flex;
+    animation: tabReveal 0.45s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes tabReveal {
+    from {
+        opacity: 0;
+        transform: translateY(18px) scale(0.985);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* =========================================================
+   5. استایل اختصاصی هر بخش (About, Posts, Contact)
+   ========================================================= */
+section h2 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.6rem, 3vw, 2.15rem);
+    color: var(--text-primary);
+    margin-bottom: 1.25rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+section h2::before {
+    content: "";
+    width: 28px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--accent), var(--accent-strong));
+    border-radius: 999px;
+}
+
+/* --- بخش About --- */
+#about {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--radius-lg);
+    padding: clamp(1.75rem, 4vw, 3rem);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+}
+
+#about p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 68ch;
+}
+
+#about p+p {
+    margin-top: 1rem;
+}
+
+/* --- بخش Posts --- */
+#posts {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+#posts>h2 {
+    grid-column: 1 / -1;
+    margin-bottom: 0.25rem;
+}
+
+article {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-radius: var(--radius-md);
+    padding: 1.85rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform var(--transition), border-color var(--transition), background-color var(--transition), box-shadow var(--transition);
+}
+
+article::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--accent), transparent);
+    opacity: 0.5;
+    transition: opacity var(--transition);
+}
+
+article:hover {
+    transform: translateY(-6px);
+    background: var(--bg-surface-hover);
+    border-color: var(--border-accent);
+    box-shadow: 0 18px 40px rgba(0, 0, 0, 0.5);
+}
+
+article:hover::before {
+    opacity: 1;
+}
+
+article h3 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.28rem;
+    color: var(--text-primary);
+    line-height: 1.35;
+}
+
+article p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+/* --- بخش Contact --- */
+#contact {
+    background: var(--bg-surface);
+    border: 1px solid var(--border-subtle);
+    border-top: 4px solid var(--accent);
+    border-radius: var(--radius-lg);
+    padding: clamp(2rem, 5vw, 3.5rem);
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+}
+
+#contact h2::before {
+    display: none;
+}
+
+address {
+    font-style: normal;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    width: 100%;
+}
+
+address p {
+    background: rgba(9, 11, 16, 0.7);
+    border: 1px solid var(--border-subtle);
+    padding: 0.9rem 1.75rem;
+    border-radius: 999px;
+    color: var(--text-secondary);
+    font-size: 1rem;
+    transition: border-color var(--transition), transform var(--transition), box-shadow var(--transition);
+}
+
+address p:hover {
+    border-color: var(--accent);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.4);
+}
+
+address a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 0.4rem;
+}
+
+address a:hover {
+    text-decoration: underline;
+}
+
+/* =========================================================
+   6. ریسپانسیو موبایل و دسترس‌پذیری
+   ========================================================= */
+@media (max-width: 640px) {
+    nav ul {
+        width: 100%;
+        border-radius: var(--radius-md);
+    }
+
+    nav li {
+        flex: 1;
+    }
+
+    nav a {
+        width: 100%;
+        padding: 0.65rem 0.5rem;
+        font-size: 0.88rem;
+    }
+
+    #posts {
+        grid-template-columns: 1fr;
+    }
+
+    address {
+        flex-direction: column;
+    }
+
+    address p {
+        width: 100%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
