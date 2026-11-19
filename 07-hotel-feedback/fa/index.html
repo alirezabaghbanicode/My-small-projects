@@ -1,0 +1,1052 @@
+<!doctype html>
+<html lang="fa" dir="rtl" data-theme="light">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- سیاست امنیتی محتوا (CSP) برای مسدودسازی اسکریپت‌های ناشناس و حملات XSS -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://formspree.io https://api.web3forms.com; object-src 'none'; base-uri 'self'; form-action 'self' https://formspree.io https://api.web3forms.com;"
+    />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+
+    <!-- متاتگ‌های اصلی سئو (SEO) -->
+    <title>فرم نظرسنجی و ارزیابی اقامت مهمانان | هتل بزرگ آریا</title>
+    <meta
+      name="description"
+      content="تجربه اقامت خود در هتل بزرگ آریا را ثبت کنید. فرم هوشمند و استاندارد نظرسنجی مهمانان با قابلیت امتیازدهی، ذخیره خودکار پیش‌نویس و دریافت رسید. طراحی و توسعه توسط علیرضا باغبانی."
+    />
+    <meta
+      name="keywords"
+      content="فرم نظرسنجی هتل, ارزیابی اقامت, فرم بازخورد مهمانان, طراحی فرم استاندارد, علیرضا باغبانی"
+    />
+    <meta name="author" content="علیرضا باغبانی (Alireza Baghbani)" />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f1b2d" />
+    <!-- نکته: بعد از انتشار در GitHub Pages، آدرس واقعی پروژه خودت را اینجا بگذار -->
+    <link
+      rel="canonical"
+      href="https://alirezabaghbanicode.github.io/My-small-projects/07-hotel-feedback/fa/"
+    />
+
+    <!-- متاتگ‌های شبکه‌های اجتماعی (Open Graph و X/Twitter) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="fa_IR" />
+    <meta property="og:site_name" content="هتل بزرگ آریا" />
+    <meta
+      property="og:title"
+      content="فرم نظرسنجی و ارزیابی اقامت مهمانان | هتل بزرگ آریا"
+    />
+    <meta
+      property="og:description"
+      content="نظرات شما کیفیت میزبانی ما را می‌سازد. فرم نظرسنجی تعاملی و استاندارد طراحی‌شده توسط علیرضا باغبانی."
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="فرم نظرسنجی مهمانان | هتل بزرگ آریا" />
+    <meta
+      name="twitter:description"
+      content="فرم حرفه‌ای، ایمن و واکنش‌گرای ارزیابی خدمات هتل با قابلیت خروجی JSON و PDF."
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "فرم نظرسنجی و ارزیابی اقامت مهمانان هتل بزرگ آریا",
+        "description": "فرم رسمی ثبت بازخورد و امتیازدهی به خدمات اقامتی و رستوران هتل بزرگ آریا",
+        "inLanguage": "fa-IR",
+        "author": {
+          "@type": "Person",
+          "name": "علیرضا باغبانی",
+          "alternateName": "Alireza Baghbani",
+          "url": "https://github.com/alirezabaghbanicode"
+        },
+        "about": {
+          "@type": "Hotel",
+          "name": "هتل بزرگ آریا",
+          "starRating": {
+            "@type": "Rating",
+            "ratingValue": "5"
+          }
+        }
+      }
+    </script>
+
+    <!-- فونت استاندارد فارسی (وزیرمتن) با اتصال پیش‌فرض سریع برای بهبود سرعت بارگذاری -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- لینک دسترسی‌پذیری برای کاربران کیبورد و صفحه‌خوان -->
+    <a href="#main-content" class="skip-link">پرش به فرم نظرسنجی</a>
+
+    <div class="page-wrapper">
+      <!-- نوار ابزار بالایی: نام هتل و تغییر حالت شب/روز -->
+      <nav class="top-bar" aria-label="تنظیمات نمایش">
+        <span class="brand-tag" id="brand-name-display">
+          <svg
+            width="15"
+            height="15"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+            />
+          </svg>
+          <span>هتل بزرگ آریا</span>
+        </span>
+
+        <button
+          type="button"
+          id="theme-toggle"
+          class="theme-btn"
+          aria-pressed="false"
+          aria-label="تغییر حالت روشن و تاریک"
+        >
+          <span class="theme-icon" aria-hidden="true">🌙</span>
+          <span class="theme-label">حالت تاریک</span>
+        </button>
+      </nav>
+
+      <!-- هدر اصلی صفحه -->
+      <header class="hero-header">
+        <h1>فرم ارزیابی و نظرسنجی مهمانان</h1>
+        <p class="hero-subtitle">
+          از اینکه اقامتگاه ما را انتخاب کردید سپاسگزاریم. ثبت دیدگاه دقیق شما
+          به ما کمک می‌کند کیفیت خدمات، پذیرایی و آرامش اقامت بعدی شما را ارتقا
+          دهیم.
+        </p>
+        <div class="gold-divider" aria-hidden="true"></div>
+      </header>
+
+      <!-- نوار پیشرفت زنده و هوشمند -->
+      <section class="progress-panel" aria-label="میزان تکمیل فرم">
+        <div class="progress-meta">
+          <span class="progress-title">میزان تکمیل فرم</span>
+          <span id="progress-text" class="progress-value">۰٪</span>
+        </div>
+        <progress
+          id="form-progress"
+          class="progress-bar"
+          value="0"
+          max="100"
+        ></progress>
+      </section>
+
+      <!-- کارت اصلی فرم -->
+      <main id="main-content" class="survey-card">
+        <!-- بنر اعلان وضعیت (ذخیره خودکار، خطا یا پیام سیستم) -->
+        <div
+          id="status-banner"
+          class="status-banner is-hidden"
+          role="status"
+          aria-live="polite"
+        ></div>
+
+        <form id="feedback-form" class="feedback-form" novalidate>
+          <!-- فیلد تله ضدربات (Honeypot): انسان‌ها آن را نمی‌بینند، ربات‌ها پرش می‌کنند -->
+          <div class="hp-field" aria-hidden="true">
+            <label for="website-hp"
+              >در صورت انسان بودن این فیلد را خالی بگذارید</label
+            >
+            <input
+              type="text"
+              id="website-hp"
+              name="website_hp"
+              tabindex="-1"
+              autocomplete="off"
+            />
+          </div>
+
+          <!-- بخش ۱: مشخصات مهمان و جزئیات اقامت -->
+          <fieldset class="form-section">
+            <legend class="section-legend">
+              <span class="step-num">۰۱</span>
+              مشخصات مهمان و جزئیات اقامت
+            </legend>
+
+            <div class="input-grid">
+              <div class="field-group">
+                <label for="full-name">
+                  نام و نام خانوادگی
+                  <span class="required-mark" aria-hidden="true">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="full-name"
+                  name="name"
+                  placeholder="مثلاً: علیرضا باغبانی"
+                  autocomplete="name"
+                  minlength="2"
+                  maxlength="80"
+                  required
+                />
+                <span
+                  class="field-error"
+                  id="error-full-name"
+                  aria-live="polite"
+                ></span>
+              </div>
+
+              <div class="field-group">
+                <label for="email">
+                  نشانی ایمیل
+                  <span class="required-mark" aria-hidden="true">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  dir="ltr"
+                  placeholder="example@domain.com"
+                  autocomplete="email"
+                  maxlength="120"
+                  required
+                />
+                <span
+                  class="field-error"
+                  id="error-email"
+                  aria-live="polite"
+                ></span>
+              </div>
+
+              <div class="field-group">
+                <label for="phone">
+                  شماره تماس <span class="optional-tag">(اختیاری)</span>
+                </label>
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  dir="ltr"
+                  placeholder="09123456789"
+                  autocomplete="tel"
+                  pattern="^09\d{9}$"
+                  maxlength="11"
+                />
+                <span
+                  class="field-error"
+                  id="error-phone"
+                  aria-live="polite"
+                ></span>
+              </div>
+
+              <div class="field-group">
+                <label for="age">
+                  سن <span class="optional-tag">(اختیاری)</span>
+                </label>
+                <input
+                  type="number"
+                  id="age"
+                  name="age"
+                  placeholder="مثلاً: ۲۸"
+                  min="10"
+                  max="110"
+                />
+                <span
+                  class="field-error"
+                  id="error-age"
+                  aria-live="polite"
+                ></span>
+              </div>
+
+              <div class="field-group">
+                <label for="room-type">
+                  نوع اتاق یا سوئیت <span class="optional-tag">(اختیاری)</span>
+                </label>
+                <select id="room-type" name="roomType">
+                  <option value="">انتخاب نوع اتاق...</option>
+                  <option value="اتاق استاندارد دوتخته">
+                    اتاق استاندارد دوتخته
+                  </option>
+                  <option value="اتاق لوکس کینگ">
+                    اتاق لوکس کینگ (Deluxe)
+                  </option>
+                  <option value="سوئیت جونیور">سوئیت جونیور</option>
+                  <option value="سوئیت رویال و پنت‌هاوس">
+                    سوئیت رویال و پنت‌هاوس
+                  </option>
+                  <option value="ویلای خانوادگی">ویلای خانوادگی</option>
+                </select>
+              </div>
+
+              <div class="field-group">
+                <label for="stay-nights">
+                  مدت اقامت (شب) <span class="optional-tag">(اختیاری)</span>
+                </label>
+                <input
+                  type="number"
+                  id="stay-nights"
+                  name="stayNights"
+                  placeholder="مثلاً: ۳"
+                  min="1"
+                  max="90"
+                />
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- بخش ۲: سابقه اقامت -->
+          <fieldset class="form-section">
+            <legend class="section-legend">
+              <span class="step-num">۰۲</span>
+              آیا این نخستین تجربه اقامت شما در هتل ما بود؟
+              <span class="required-mark" aria-hidden="true">*</span>
+            </legend>
+
+            <div class="choice-grid">
+              <label class="choice-card" for="yes-option">
+                <input
+                  id="yes-option"
+                  type="radio"
+                  name="firstVisit"
+                  value="بله، اولین بار"
+                  required
+                />
+                <span class="choice-indicator" aria-hidden="true"></span>
+                <span class="choice-content">
+                  <span class="choice-title">بله، اولین اقامت من بود</span>
+                  <span class="choice-desc"
+                    >خوشحالیم که میزبان اولین تجربه شما بودیم</span
+                  >
+                </span>
+              </label>
+
+              <label class="choice-card" for="no-option">
+                <input
+                  id="no-option"
+                  type="radio"
+                  name="firstVisit"
+                  value="خیر، مهمان همیشگی"
+                />
+                <span class="choice-indicator" aria-hidden="true"></span>
+                <span class="choice-content">
+                  <span class="choice-title"
+                    >خیر، پیش‌تر هم مهمان شما بوده‌ام</span
+                  >
+                  <span class="choice-desc"
+                    >اعتماد دوباره شما بزرگ‌ترین افتخار ماست</span
+                  >
+                </span>
+              </label>
+            </div>
+            <span
+              class="field-error"
+              id="error-firstVisit"
+              aria-live="polite"
+            ></span>
+          </fieldset>
+
+          <!-- بخش ۳: دلایل انتخاب هتل -->
+          <fieldset class="form-section">
+            <legend class="section-legend">
+              <span class="step-num">۰۳</span>
+              چرا هتل ما را برای اقامت انتخاب کردید؟
+            </legend>
+            <p class="section-hint">
+              می‌توانید چند گزینه را هم‌زمان انتخاب کنید.
+            </p>
+
+            <div class="pill-grid">
+              <label class="pill-card" for="choice-social">
+                <input
+                  type="checkbox"
+                  id="choice-social"
+                  name="reasons"
+                  value="شبکه‌های اجتماعی"
+                />
+                <span class="pill-check" aria-hidden="true"></span>
+                <span>شبکه‌های اجتماعی</span>
+              </label>
+
+              <label class="pill-card" for="choice-friends">
+                <input
+                  type="checkbox"
+                  id="choice-friends"
+                  name="reasons"
+                  value="پیشنهاد دوستان و آشنایان"
+                />
+                <span class="pill-check" aria-hidden="true"></span>
+                <span>پیشنهاد دوستان و آشنایان</span>
+              </label>
+
+              <label class="pill-card" for="choice-location">
+                <input
+                  type="checkbox"
+                  id="choice-location"
+                  name="reasons"
+                  value="موقعیت مکانی عالی"
+                />
+                <span class="pill-check" aria-hidden="true"></span>
+                <span>موقعیت مکانی عالی</span>
+              </label>
+
+              <label class="pill-card" for="choice-reputation">
+                <input
+                  type="checkbox"
+                  id="choice-reputation"
+                  name="reasons"
+                  value="اعتبار و نظرات مثبت"
+                  checked
+                />
+                <span class="pill-check" aria-hidden="true"></span>
+                <span>اعتبار و نظرات مثبت</span>
+              </label>
+
+              <label class="pill-card" for="choice-price">
+                <input
+                  type="checkbox"
+                  id="choice-price"
+                  name="reasons"
+                  value="ارزش خرید و قیمت مناسب"
+                />
+                <span class="pill-check" aria-hidden="true"></span>
+                <span>ارزش خرید و قیمت مناسب</span>
+              </label>
+
+              <label class="pill-card" for="choice-facilities">
+                <input
+                  type="checkbox"
+                  id="choice-facilities"
+                  name="reasons"
+                  value="امکانات رفاهی و اسپا"
+                />
+                <span class="pill-check" aria-hidden="true"></span>
+                <span>امکانات رفاهی و اسپا</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- بخش ۴: امتیازدهی ستاره‌ای و شاخص وفاداری (NPS) -->
+          <fieldset class="form-section">
+            <legend class="section-legend">
+              <span class="step-num">۰۴</span>
+              ارزیابی کیفیت خدمات
+            </legend>
+
+            <div class="ratings-stack">
+              <!-- ردیف ۱: برخورد پرسنل -->
+              <div class="rating-row">
+                <div class="rating-info">
+                  <span class="rating-title" id="label-service"
+                    >برخورد پرسنل و پذیرش</span
+                  >
+                  <span class="rating-desc"
+                    >سرعت پذیرش، خوش‌رویی و پاسخ‌گویی</span
+                  >
+                </div>
+                <div
+                  class="star-rating"
+                  role="radiogroup"
+                  aria-labelledby="label-service"
+                >
+                  <input
+                    type="radio"
+                    id="service-5"
+                    name="service"
+                    value="5"
+                    checked
+                  />
+                  <label
+                    for="service-5"
+                    title="عالی (۵ از ۵)"
+                    aria-label="۵ ستاره"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+
+                  <input type="radio" id="service-4" name="service" value="4" />
+                  <label
+                    for="service-4"
+                    title="خیلی خوب (۴ از ۵)"
+                    aria-label="۴ ستاره"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+
+                  <input type="radio" id="service-3" name="service" value="3" />
+                  <label
+                    for="service-3"
+                    title="خوب (۳ از ۵)"
+                    aria-label="۳ ستاره"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+
+                  <input type="radio" id="service-2" name="service" value="2" />
+                  <label
+                    for="service-2"
+                    title="متوسط (۲ از ۵)"
+                    aria-label="۲ ستاره"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+
+                  <input type="radio" id="service-1" name="service" value="1" />
+                  <label
+                    for="service-1"
+                    title="ضعیف (۱ از ۵)"
+                    aria-label="۱ ستاره"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+                </div>
+              </div>
+
+              <!-- ردیف ۲: کیفیت غذا -->
+              <div class="rating-row">
+                <div class="rating-info">
+                  <span class="rating-title" id="label-food"
+                    >کیفیت غذا و رستوران</span
+                  >
+                  <span class="rating-desc"
+                    >تنوع صبحانه، طعم غذاها و روم‌سرویس</span
+                  >
+                </div>
+                <div
+                  class="star-rating"
+                  role="radiogroup"
+                  aria-labelledby="label-food"
+                >
+                  <input
+                    type="radio"
+                    id="food-5"
+                    name="food"
+                    value="5"
+                    checked
+                  />
+                  <label
+                    for="food-5"
+                    title="عالی (۵ از ۵)"
+                    aria-label="۵ ستاره"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+
+                  <input type="radio" id="food-4" name="food" value="4" />
+                  <label
+                    for="food-4"
+                    title="خیلی خوب (۴ از ۵)"
+                    aria-label="۴ ستاره"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+
+                  <input type="radio" id="food-3" name="food" value="3" />
+                  <label for="food-3" title="خوب (۳ از ۵)" aria-label="۳ ستاره">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+
+                  <input type="radio" id="food-2" name="food" value="2" />
+                  <label
+                    for="food-2"
+                    title="متوسط (۲ از ۵)"
+                    aria-label="۲ ستاره"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+
+                  <input type="radio" id="food-1" name="food" value="1" />
+                  <label
+                    for="food-1"
+                    title="ضعیف (۱ از ۵)"
+                    aria-label="۱ ستاره"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+                </div>
+              </div>
+
+              <!-- ردیف ۳: نظافت و آرامش -->
+              <div class="rating-row">
+                <div class="rating-info">
+                  <span class="rating-title" id="label-cleanliness"
+                    >نظافت و آرامش اتاق</span
+                  >
+                  <span class="rating-desc"
+                    >پاکیزگی، کیفیت تخت‌خواب و عایق صوتی</span
+                  >
+                </div>
+                <div
+                  class="star-rating"
+                  role="radiogroup"
+                  aria-labelledby="label-cleanliness"
+                >
+                  <input
+                    type="radio"
+                    id="clean-5"
+                    name="cleanliness"
+                    value="5"
+                    checked
+                  />
+                  <label
+                    for="clean-5"
+                    title="عالی (۵ از ۵)"
+                    aria-label="۵ ستاره"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+
+                  <input
+                    type="radio"
+                    id="clean-4"
+                    name="cleanliness"
+                    value="4"
+                  />
+                  <label
+                    for="clean-4"
+                    title="خیلی خوب (۴ از ۵)"
+                    aria-label="۴ ستاره"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+
+                  <input
+                    type="radio"
+                    id="clean-3"
+                    name="cleanliness"
+                    value="3"
+                  />
+                  <label
+                    for="clean-3"
+                    title="خوب (۳ از ۵)"
+                    aria-label="۳ ستاره"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+
+                  <input
+                    type="radio"
+                    id="clean-2"
+                    name="cleanliness"
+                    value="2"
+                  />
+                  <label
+                    for="clean-2"
+                    title="متوسط (۲ از ۵)"
+                    aria-label="۲ ستاره"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+
+                  <input
+                    type="radio"
+                    id="clean-1"
+                    name="cleanliness"
+                    value="1"
+                  />
+                  <label
+                    for="clean-1"
+                    title="ضعیف (۱ از ۵)"
+                    aria-label="۱ ستاره"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+                </div>
+              </div>
+
+              <!-- ردیف ۴: امکانات و اینترنت -->
+              <div class="rating-row">
+                <div class="rating-info">
+                  <span class="rating-title" id="label-facilities"
+                    >امکانات رفاهی و اینترنت</span
+                  >
+                  <span class="rating-desc"
+                    >سرعت Wi-Fi، تهویه، استخر و پارکینگ</span
+                  >
+                </div>
+                <div
+                  class="star-rating"
+                  role="radiogroup"
+                  aria-labelledby="label-facilities"
+                >
+                  <input type="radio" id="fac-5" name="facilities" value="5" />
+                  <label for="fac-5" title="عالی (۵ از ۵)" aria-label="۵ ستاره">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+
+                  <input
+                    type="radio"
+                    id="fac-4"
+                    name="facilities"
+                    value="4"
+                    checked
+                  />
+                  <label
+                    for="fac-4"
+                    title="خیلی خوب (۴ از ۵)"
+                    aria-label="۴ ستاره"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+
+                  <input type="radio" id="fac-3" name="facilities" value="3" />
+                  <label for="fac-3" title="خوب (۳ از ۵)" aria-label="۳ ستاره">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+
+                  <input type="radio" id="fac-2" name="facilities" value="2" />
+                  <label
+                    for="fac-2"
+                    title="متوسط (۲ از ۵)"
+                    aria-label="۲ ستاره"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+
+                  <input type="radio" id="fac-1" name="facilities" value="1" />
+                  <label for="fac-1" title="ضعیف (۱ از ۵)" aria-label="۱ ستاره">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <!-- شاخص وفاداری مشتری (NPS: امتیاز ۱ تا ۱۰) -->
+            <div class="nps-block">
+              <p class="nps-question" id="nps-label">
+                چقدر احتمال دارد هتل ما را به دوستان یا همکاران خود پیشنهاد
+                دهید؟
+              </p>
+              <div
+                class="nps-scale"
+                role="radiogroup"
+                aria-labelledby="nps-label"
+              >
+                <label class="nps-item"
+                  ><input type="radio" name="nps" value="1" /><span
+                    >۱</span
+                  ></label
+                >
+                <label class="nps-item"
+                  ><input type="radio" name="nps" value="2" /><span
+                    >۲</span
+                  ></label
+                >
+                <label class="nps-item"
+                  ><input type="radio" name="nps" value="3" /><span
+                    >۳</span
+                  ></label
+                >
+                <label class="nps-item"
+                  ><input type="radio" name="nps" value="4" /><span
+                    >۴</span
+                  ></label
+                >
+                <label class="nps-item"
+                  ><input type="radio" name="nps" value="5" /><span
+                    >۵</span
+                  ></label
+                >
+                <label class="nps-item"
+                  ><input type="radio" name="nps" value="6" /><span
+                    >۶</span
+                  ></label
+                >
+                <label class="nps-item"
+                  ><input type="radio" name="nps" value="7" /><span
+                    >۷</span
+                  ></label
+                >
+                <label class="nps-item"
+                  ><input type="radio" name="nps" value="8" /><span
+                    >۸</span
+                  ></label
+                >
+                <label class="nps-item"
+                  ><input type="radio" name="nps" value="9" /><span
+                    >۹</span
+                  ></label
+                >
+                <label class="nps-item"
+                  ><input type="radio" name="nps" value="10" checked /><span
+                    >۱۰</span
+                  ></label
+                >
+              </div>
+              <div class="nps-hints">
+                <span>اصلاً پیشنهاد نمی‌دهم</span>
+                <span>قطعاً پیشنهاد می‌دهم</span>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- بخش ۵: نظرات و پیشنهادات -->
+          <fieldset class="form-section">
+            <legend class="section-legend">
+              <span class="step-num">۰۵</span>
+              پیشنهادها و خاطرات اقامت
+            </legend>
+
+            <div class="field-group">
+              <div class="textarea-header">
+                <label for="comments">
+                  نکات مثبت یا مواردی که باید بهبود دهیم
+                  <span class="optional-tag">(اختیاری)</span>
+                </label>
+                <span id="char-count" class="char-count">۰ / ۱۰۰۰</span>
+              </div>
+              <textarea
+                id="comments"
+                name="comments"
+                rows="5"
+                maxlength="1000"
+                placeholder="تجربه خود را بنویسید؛ حتی کوچک‌ترین جزئیات برای ما ارزشمند است..."
+              ></textarea>
+            </div>
+          </fieldset>
+
+          <!-- دکمه‌های عملیاتی فرم -->
+          <div class="form-actions">
+            <button type="submit" id="submit-btn" class="btn-submit">
+              <span>ثبت و ارسال نظرسنجی</span>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M19 12H5" />
+                <path d="m12 19-7-7 7-7" />
+              </svg>
+            </button>
+
+            <button type="button" id="reset-btn" class="btn-secondary">
+              پاک کردن فرم و پیش‌نویس
+            </button>
+          </div>
+
+          <p class="privacy-note">
+            اطلاعات شما به‌صورت محرمانه ثبت شده و پیش‌نویس فرم فقط روی مرورگر
+            خودتان ذخیره می‌شود.
+          </p>
+        </form>
+      </main>
+
+      <!-- فوتر اختصاصی به نام توسعه‌دهنده -->
+      <footer class="page-footer">
+        <p>
+          طراحی و توسعه با استانداردهای وب مدرن توسط
+          <a
+            href="https://github.com/alirezabaghbanicode"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            علیرضا باغبانی
+          </a>
+        </p>
+        <p class="footer-sub">
+          پروژه متن‌باز — قابل شخصی‌سازی برای انواع هتل‌ها و کسب‌وکارها
+        </p>
+      </footer>
+    </div>
+
+    <!-- پنجره رسید و خروجی گزارش (تگ استاندارد dialog) -->
+    <dialog
+      id="result-modal"
+      class="result-modal"
+      aria-labelledby="modal-title"
+    >
+      <div class="modal-card">
+        <div class="modal-header">
+          <div class="modal-badge" aria-hidden="true">✓</div>
+          <h2 id="modal-title">نظرسنجی شما با موفقیت ثبت شد</h2>
+          <p id="modal-subtitle" class="modal-subtitle"></p>
+        </div>
+
+        <dl id="summary-list" class="summary-list"></dl>
+
+        <div class="modal-actions">
+          <button type="button" id="download-json-btn" class="btn-outline">
+            دانلود فایل JSON
+          </button>
+          <button type="button" id="print-receipt-btn" class="btn-outline">
+            چاپ / ذخیره PDF
+          </button>
+          <button
+            type="button"
+            id="close-modal-btn"
+            class="btn-submit btn-compact"
+          >
+            بستن پنجره
+          </button>
+        </div>
+      </div>
+    </dialog>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>

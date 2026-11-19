@@ -1,0 +1,538 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Share your recent stay experience at The Aurelia Grand Hotel & Spa."
+    />
+    <title>Guest Experience Survey | The Aurelia Grand Hotel</title>
+    <meta
+      name="description"
+      content="Share your recent stay experience at The Aurelia Grand Hotel & Spa."
+    />
+    <meta name="author" content="Alireza Baghbani" />
+    <link rel="author" href="https://github.com/alirezabaghbanicode" />
+    <title>Guest Experience Survey | The Aurelia Grand Hotel</title>
+    <title>Guest Experience Survey | The Aurelia Grand Hotel</title>
+    <!-- فونت‌های لوکس و خوانا از Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-wrapper">
+      <header class="hero-header">
+        <span class="hotel-badge">
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path
+              d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+            />
+          </svg>
+          The Aurelia Grand Hotel &amp; Spa
+        </span>
+        <h1>Guest Feedback Form</h1>
+        <p class="hero-subtitle">
+          Thank you for staying with us. Your insights help us elevate every
+          detail of our hospitality.
+        </p>
+        <div class="gold-divider" aria-hidden="true"></div>
+      </header>
+
+      <main class="survey-card">
+        <form
+          class="feedback-form"
+          method="POST"
+          action="https://hotel-feedback.freecodecamp.org"
+        >
+          <!-- بخش ۱: اطلاعات شخصی -->
+          <fieldset class="form-section">
+            <legend class="section-legend">
+              <span class="step-num">01</span>
+              Personal Information
+            </legend>
+
+            <div class="input-grid">
+              <div class="field-group">
+                <label for="full-name">
+                  Full Name
+                  <span class="required-mark" aria-hidden="true">*</span>
+                </label>
+                <input
+                  type="text"
+                  id="full-name"
+                  name="name"
+                  placeholder="e.g., Eleanor Vance"
+                  autocomplete="name"
+                  minlength="2"
+                  required
+                />
+              </div>
+
+              <div class="field-group">
+                <label for="email">
+                  Email Address
+                  <span class="required-mark" aria-hidden="true">*</span>
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="eleanor@example.com"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+
+              <div class="field-group">
+                <label for="age">
+                  Age <span class="optional-tag">(Optional)</span>
+                </label>
+                <input
+                  type="number"
+                  id="age"
+                  name="age"
+                  placeholder="e.g., 28"
+                  min="3"
+                  max="100"
+                />
+              </div>
+
+              <div class="field-group">
+                <label for="room-type">
+                  Suite Category <span class="optional-tag">(Optional)</span>
+                </label>
+                <select name="room-type" id="room-type">
+                  <option value="" selected>Select your room type</option>
+                  <option value="deluxe">Deluxe King Room</option>
+                  <option value="executive">Executive Ocean Suite</option>
+                  <option value="penthouse">Royal Penthouse</option>
+                  <option value="family">Family Garden Villa</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- بخش ۲: اولین تجربه اقامت -->
+          <fieldset class="form-section">
+            <legend class="section-legend">
+              <span class="step-num">02</span>
+              Was this your first time staying at our hotel?
+            </legend>
+
+            <div class="choice-grid choice-grid--two">
+              <label class="choice-card" for="yes-option">
+                <input
+                  id="yes-option"
+                  type="radio"
+                  name="hotel-stay"
+                  value="yes"
+                  required
+                />
+                <span
+                  class="choice-indicator choice-indicator--radio"
+                  aria-hidden="true"
+                ></span>
+                <span class="choice-content">
+                  <span class="choice-title">Yes, First Visit</span>
+                  <span class="choice-desc">Welcome to the Aurelia family</span>
+                </span>
+              </label>
+
+              <label class="choice-card" for="no-option">
+                <input
+                  id="no-option"
+                  type="radio"
+                  name="hotel-stay"
+                  value="no"
+                />
+                <span
+                  class="choice-indicator choice-indicator--radio"
+                  aria-hidden="true"
+                ></span>
+                <span class="choice-content">
+                  <span class="choice-title">No, Returning Guest</span>
+                  <span class="choice-desc"
+                    >Always a pleasure welcoming you back</span
+                  >
+                </span>
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- بخش ۳: دلیل انتخاب هتل -->
+          <fieldset class="form-section">
+            <legend class="section-legend">
+              <span class="step-num">03</span>
+              Why did you choose our hotel?
+            </legend>
+            <p class="section-hint">
+              Select all options that influenced your booking.
+            </p>
+
+            <div class="pill-grid">
+              <label class="pill-card" for="ads">
+                <input type="checkbox" id="ads" name="choice" value="ads" />
+                <span class="pill-check" aria-hidden="true"></span>
+                <span>Social Media Ads</span>
+              </label>
+
+              <label class="pill-card" for="recommendation">
+                <input
+                  type="checkbox"
+                  id="recommendation"
+                  name="choice"
+                  value="recommendation"
+                />
+                <span class="pill-check" aria-hidden="true"></span>
+                <span>Personal Recommendation</span>
+              </label>
+
+              <label class="pill-card" for="location">
+                <input
+                  type="checkbox"
+                  id="location"
+                  name="choice"
+                  value="location"
+                />
+                <span class="pill-check" aria-hidden="true"></span>
+                <span>Prime Location</span>
+              </label>
+
+              <label class="pill-card" for="reputation">
+                <input
+                  type="checkbox"
+                  id="reputation"
+                  name="choice"
+                  value="reputation"
+                  checked
+                />
+                <span class="pill-check" aria-hidden="true"></span>
+                <span>5-Star Reputation</span>
+              </label>
+
+              <label class="pill-card" for="price">
+                <input type="checkbox" id="price" name="choice" value="price" />
+                <span class="pill-check" aria-hidden="true"></span>
+                <span>Value &amp; Pricing</span>
+              </label>
+            </div>
+          </fieldset>
+
+          <!-- بخش ۴: امتیازدهی ستاره‌ای تعاملی -->
+          <fieldset class="form-section">
+            <legend class="section-legend">
+              <span class="step-num">04</span>
+              Rate Your Stay
+            </legend>
+
+            <div class="ratings-stack">
+              <!-- امتیاز سرویس‌دهی -->
+              <div class="rating-row">
+                <div class="rating-info">
+                  <span class="rating-title" id="service-label"
+                    >Hospitality &amp; Service</span
+                  >
+                  <span class="rating-desc"
+                    >Check-in, concierge &amp; housekeeping</span
+                  >
+                </div>
+                <div
+                  class="star-rating"
+                  role="radiogroup"
+                  aria-labelledby="service-label"
+                >
+                  <input
+                    type="radio"
+                    id="service-5"
+                    name="service"
+                    value="excellent"
+                    checked
+                  />
+                  <label
+                    for="service-5"
+                    title="Excellent (5/5)"
+                    aria-label="Excellent"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+
+                  <input
+                    type="radio"
+                    id="service-4"
+                    name="service"
+                    value="very-good"
+                  />
+                  <label
+                    for="service-4"
+                    title="Very Good (4/5)"
+                    aria-label="Very Good"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+
+                  <input
+                    type="radio"
+                    id="service-3"
+                    name="service"
+                    value="good"
+                  />
+                  <label for="service-3" title="Good (3/5)" aria-label="Good">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+
+                  <input
+                    type="radio"
+                    id="service-2"
+                    name="service"
+                    value="satisfactory"
+                  />
+                  <label
+                    for="service-2"
+                    title="Satisfactory (2/5)"
+                    aria-label="Satisfactory"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+
+                  <input
+                    type="radio"
+                    id="service-1"
+                    name="service"
+                    value="poor"
+                  />
+                  <label for="service-1" title="Poor (1/5)" aria-label="Poor">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+                </div>
+              </div>
+
+              <!-- امتیاز غذا و رستوران -->
+              <div class="rating-row">
+                <div class="rating-info">
+                  <span class="rating-title" id="food-label"
+                    >Dining &amp; Culinary</span
+                  >
+                  <span class="rating-desc"
+                    >Breakfast buffet, room service &amp; lounge</span
+                  >
+                </div>
+                <div
+                  class="star-rating"
+                  role="radiogroup"
+                  aria-labelledby="food-label"
+                >
+                  <input
+                    type="radio"
+                    id="food-5"
+                    name="food"
+                    value="excellent"
+                    checked
+                  />
+                  <label
+                    for="food-5"
+                    title="Excellent (5/5)"
+                    aria-label="Excellent"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+
+                  <input
+                    type="radio"
+                    id="food-4"
+                    name="food"
+                    value="very-good"
+                  />
+                  <label
+                    for="food-4"
+                    title="Very Good (4/5)"
+                    aria-label="Very Good"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+
+                  <input type="radio" id="food-3" name="food" value="good" />
+                  <label for="food-3" title="Good (3/5)" aria-label="Good">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+
+                  <input
+                    type="radio"
+                    id="food-2"
+                    name="food"
+                    value="satisfactory"
+                  />
+                  <label
+                    for="food-2"
+                    title="Satisfactory (2/5)"
+                    aria-label="Satisfactory"
+                  >
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+
+                  <input type="radio" id="food-1" name="food" value="poor" />
+                  <label for="food-1" title="Poor (1/5)" aria-label="Poor">
+                    <svg
+                      viewBox="0 0 24 24"
+                      fill="currentColor"
+                      aria-hidden="true"
+                    >
+                      <path
+                        d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"
+                      />
+                    </svg>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </fieldset>
+
+          <!-- بخش ۵: نظرات تکمیلی -->
+          <fieldset class="form-section">
+            <legend class="section-legend">
+              <span class="step-num">05</span>
+              Additional Comments
+            </legend>
+
+            <div class="field-group">
+              <label for="comments">
+                Share any memorable moments or suggestions
+                <span class="optional-tag">(Optional)</span>
+              </label>
+              <textarea
+                id="comments"
+                name="comments"
+                rows="5"
+                placeholder="Tell us what made your stay special, or how we can make your next visit even better..."
+              ></textarea>
+            </div>
+          </fieldset>
+
+          <!-- دکمه ارسال -->
+          <div class="form-actions">
+            <button type="submit" class="btn-submit">
+              <span>Submit Feedback</span>
+              <svg
+                width="18"
+                height="18"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2.2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                aria-hidden="true"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </button>
+            <p class="privacy-note">
+              Your responses are confidential and reviewed directly by our Guest
+              Relations Director.
+            </p>
+          </div>
+        </form>
+      </main>
+
+      <footer class="page-footer">
+        <p>
+          &copy; 2026 The Aurelia Grand Hotel &amp; Spa. All rights reserved.
+        </p>
+        <p class="dev-credit">
+          Designed &amp; developed by
+          <a
+            href="https://github.com/alirezabaghbanicode"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Alireza Baghbani
+          </a>
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>

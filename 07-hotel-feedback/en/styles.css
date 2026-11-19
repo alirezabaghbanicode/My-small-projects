@@ -1,0 +1,652 @@
+/* =========================================================
+   1. DESIGN TOKENS (پالت رنگ، فونت و ابعاد مرکزی)
+   ========================================================= */
+:root {
+    --bg-deep: #0b1320;
+    --bg-surface: #ffffff;
+    --bg-subtle: #f8f6f2;
+    --bg-card-active: #fdf9f0;
+
+    --navy-900: #0f1b2d;
+    --navy-800: #1b2d47;
+    --gold-500: #c59d5f;
+    --gold-600: #a87f3e;
+    --gold-soft: rgba(197, 157, 95, 0.16);
+    --gold-glow: rgba(197, 157, 95, 0.28);
+
+    --text-dark: #141c27;
+    --text-body: #3e4c59;
+    --text-muted: #6b7a8c;
+    --text-light: #f4f1ea;
+
+    --border-light: #e7e2d8;
+    --border-input: #d4cec2;
+
+    --success: #1f8a5b;
+    --danger: #c43d4b;
+
+    --font-display: "Playfair Display", Georgia, serif;
+    --font-sans: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+
+    --radius-xl: 22px;
+    --radius-lg: 14px;
+    --radius-md: 10px;
+    --radius-pill: 999px;
+
+    --shadow-card: 0 24px 60px rgba(4, 10, 22, 0.38);
+    --transition-fast: 180ms cubic-bezier(0.22, 1, 0.36, 1);
+    --transition-smooth: 280ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* =========================================================
+   2. RESET & BASE LAYOUT
+   ========================================================= */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-sans);
+    color: var(--text-dark);
+    line-height: 1.6;
+    min-height: 100vh;
+    background-color: var(--bg-deep);
+    background-image:
+        radial-gradient(circle at 15% 10%, rgba(197, 157, 95, 0.16), transparent 40%),
+        radial-gradient(circle at 85% 90%, rgba(36, 68, 114, 0.35), transparent 45%);
+    padding: clamp(1.5rem, 5vw, 3.5rem) clamp(0.85rem, 3vw, 1.5rem);
+    -webkit-font-smoothing: antialiased;
+}
+
+.page-wrapper {
+    width: 100%;
+    max-width: 780px;
+    margin: 0 auto;
+    animation: fadeUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================================================
+   3. HERO HEADER
+   ========================================================= */
+.hero-header {
+    text-align: center;
+    margin-bottom: clamp(1.5rem, 4vw, 2.4rem);
+    color: var(--text-light);
+}
+
+.hotel-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.78rem;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--gold-500);
+    background: rgba(197, 157, 95, 0.1);
+    border: 1px solid rgba(197, 157, 95, 0.35);
+    padding: 0.4rem 0.95rem;
+    border-radius: var(--radius-pill);
+    margin-bottom: 1rem;
+}
+
+.hero-header h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    margin-bottom: 0.7rem;
+}
+
+.hero-subtitle {
+    max-width: 52ch;
+    margin: 0 auto;
+    color: rgba(244, 241, 234, 0.78);
+    font-size: clamp(0.92rem, 2vw, 1.05rem);
+}
+
+.gold-divider {
+    width: 68px;
+    height: 3px;
+    margin: 1.35rem auto 0;
+    border-radius: var(--radius-pill);
+    background: linear-gradient(90deg, transparent, var(--gold-500), transparent);
+}
+
+/* =========================================================
+   4. MAIN CARD & SECTIONS
+   ========================================================= */
+.survey-card {
+    background-color: var(--bg-surface);
+    border-radius: var(--radius-xl);
+    padding: clamp(1.35rem, 4.5vw, 2.75rem);
+    box-shadow: var(--shadow-card);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.feedback-form {
+    display: flex;
+    flex-direction: column;
+    gap: clamp(1.6rem, 3.5vw, 2.2rem);
+}
+
+.form-section {
+    border: none;
+    padding-bottom: clamp(1.4rem, 3vw, 1.9rem);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.form-section:last-of-type {
+    border-bottom: none;
+    padding-bottom: 0;
+}
+
+.section-legend {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    font-family: var(--font-display);
+    font-size: clamp(1.15rem, 2.5vw, 1.35rem);
+    font-weight: 700;
+    color: var(--navy-900);
+    margin-bottom: 1.1rem;
+    width: 100%;
+}
+
+.step-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2rem;
+    height: 2rem;
+    font-family: var(--font-sans);
+    font-size: 0.78rem;
+    font-weight: 700;
+    color: var(--gold-600);
+    background-color: var(--gold-soft);
+    border-radius: 8px;
+}
+
+.section-hint {
+    font-size: 0.88rem;
+    color: var(--text-muted);
+    margin-top: -0.65rem;
+    margin-bottom: 1rem;
+}
+
+/* =========================================================
+   5. TEXT, EMAIL, NUMBER, SELECT & TEXTAREA INPUTS
+   ========================================================= */
+.input-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+    gap: 1.1rem 1.25rem;
+}
+
+.field-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.42rem;
+}
+
+.field-group label {
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--navy-900);
+}
+
+.required-mark {
+    color: var(--danger);
+}
+
+.optional-tag {
+    font-weight: 400;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+}
+
+.field-group input,
+.field-group select,
+.field-group textarea {
+    width: 100%;
+    font-family: inherit;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    background-color: var(--bg-subtle);
+    border: 1.5px solid var(--border-input);
+    border-radius: var(--radius-md);
+    padding: 0.78rem 0.95rem;
+    transition:
+        border-color var(--transition-fast),
+        background-color var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+.field-group select {
+    appearance: none;
+    cursor: pointer;
+    padding-right: 2.5rem;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 24 24' fill='none' stroke='%23a87f3e' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.85rem center;
+}
+
+.field-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.field-group input::placeholder,
+.field-group textarea::placeholder {
+    color: #939da8;
+}
+
+.field-group input:hover,
+.field-group select:hover,
+.field-group textarea:hover {
+    border-color: #b7ae9e;
+}
+
+.field-group input:focus,
+.field-group select:focus,
+.field-group textarea:focus {
+    outline: none;
+    background-color: var(--bg-surface);
+    border-color: var(--gold-500);
+    box-shadow: 0 0 0 4px var(--gold-soft);
+}
+
+/* اعتبارسنجی مؤدبانه (فقط بعد از تعامل کاربر) */
+.field-group input:user-valid {
+    border-color: var(--success);
+}
+
+.field-group input:user-invalid {
+    border-color: var(--danger);
+    box-shadow: 0 0 0 3px rgba(196, 61, 75, 0.14);
+}
+
+/* =========================================================
+   6. INTERACTIVE RADIO CARDS (YES / NO)
+   ========================================================= */
+.choice-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+    gap: 0.9rem;
+}
+
+.choice-card {
+    position: relative;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.85rem;
+    padding: 1rem 1.1rem;
+    background-color: var(--bg-subtle);
+    border: 1.5px solid var(--border-light);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    transition:
+        border-color var(--transition-fast),
+        background-color var(--transition-fast),
+        transform var(--transition-fast),
+        box-shadow var(--transition-fast);
+}
+
+.choice-card input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+
+.choice-card:hover {
+    border-color: var(--gold-500);
+    transform: translateY(-2px);
+}
+
+.choice-card:has(input:checked) {
+    background-color: var(--bg-card-active);
+    border-color: var(--gold-500);
+    box-shadow: 0 6px 18px rgba(197, 157, 95, 0.16);
+}
+
+.choice-card:has(input:focus-visible) {
+    outline: 3px solid var(--gold-500);
+    outline-offset: 2px;
+}
+
+.choice-indicator--radio {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-top: 0.15rem;
+    border-radius: 50%;
+    border: 2px solid var(--border-input);
+    background-color: var(--bg-surface);
+    display: grid;
+    place-items: center;
+    transition: border-color var(--transition-fast);
+}
+
+.choice-indicator--radio::after {
+    content: "";
+    width: 0.6rem;
+    height: 0.6rem;
+    border-radius: 50%;
+    background-color: var(--gold-600);
+    transform: scale(0);
+    transition: transform var(--transition-fast);
+}
+
+.choice-card:has(input:checked) .choice-indicator--radio {
+    border-color: var(--gold-600);
+}
+
+.choice-card:has(input:checked) .choice-indicator--radio::after {
+    transform: scale(1);
+}
+
+.choice-content {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.choice-title {
+    font-weight: 700;
+    font-size: 0.96rem;
+    color: var(--navy-900);
+}
+
+.choice-desc {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+/* =========================================================
+   7. INTERACTIVE CHECKBOX PILLS
+   ========================================================= */
+.pill-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+}
+
+.pill-card {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.55rem;
+    padding: 0.62rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-body);
+    background-color: var(--bg-subtle);
+    border: 1.5px solid var(--border-light);
+    border-radius: var(--radius-pill);
+    cursor: pointer;
+    user-select: none;
+    transition:
+        background-color var(--transition-fast),
+        border-color var(--transition-fast),
+        color var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.pill-card input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+
+.pill-card:hover {
+    border-color: var(--gold-500);
+    transform: translateY(-1px);
+}
+
+.pill-check {
+    width: 1.1rem;
+    height: 1.1rem;
+    border-radius: 50%;
+    border: 1.5px solid var(--border-input);
+    background-color: var(--bg-surface);
+    display: inline-grid;
+    place-items: center;
+    transition:
+        background-color var(--transition-fast),
+        border-color var(--transition-fast);
+}
+
+.pill-check::after {
+    content: "";
+    width: 0.34rem;
+    height: 0.58rem;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg) scale(0);
+    margin-bottom: 1px;
+    transition: transform var(--transition-fast);
+}
+
+.pill-card:has(input:checked) {
+    background-color: var(--navy-900);
+    border-color: var(--navy-900);
+    color: #ffffff;
+}
+
+.pill-card:has(input:checked) .pill-check {
+    background-color: var(--gold-500);
+    border-color: var(--gold-500);
+}
+
+.pill-card:has(input:checked) .pill-check::after {
+    transform: rotate(45deg) scale(1);
+}
+
+.pill-card:has(input:focus-visible) {
+    outline: 3px solid var(--gold-500);
+    outline-offset: 2px;
+}
+
+/* =========================================================
+   8. PURE-CSS 5-STAR RATING SYSTEM
+   ========================================================= */
+.ratings-stack {
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+}
+
+.rating-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.85rem 1.25rem;
+    padding: 1rem 1.2rem;
+    background-color: var(--bg-subtle);
+    border: 1px solid var(--border-light);
+    border-radius: var(--radius-lg);
+}
+
+.rating-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+}
+
+.rating-title {
+    font-weight: 700;
+    font-size: 0.96rem;
+    color: var(--navy-900);
+}
+
+.rating-desc {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+
+.star-rating {
+    display: inline-flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    gap: 0.25rem;
+    padding: 0.2rem;
+    border-radius: var(--radius-md);
+}
+
+.star-rating:has(input:focus-visible) {
+    outline: 2px solid var(--gold-500);
+    outline-offset: 3px;
+}
+
+.star-rating input {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+
+.star-rating label {
+    display: inline-flex;
+    color: #d6d0c4;
+    cursor: pointer;
+    padding: 0.15rem;
+    transition:
+        color var(--transition-fast),
+        transform var(--transition-fast);
+}
+
+.star-rating label svg {
+    width: 1.75rem;
+    height: 1.75rem;
+}
+
+
+.star-rating label:hover,
+.star-rating label:hover~label,
+.star-rating input:checked~label {
+    color: var(--gold-500);
+}
+
+.star-rating label:hover {
+    transform: scale(1.16);
+}
+
+/* =========================================================
+   9. SUBMIT BUTTON & FOOTER
+   ========================================================= */
+.form-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.85rem;
+    margin-top: 0.25rem;
+}
+
+.btn-submit {
+    width: 100%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 1rem 1.75rem;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--navy-900) 0%, var(--navy-800) 100%);
+    border: 1px solid rgba(197, 157, 95, 0.35);
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    box-shadow: 0 10px 24px rgba(15, 27, 45, 0.24);
+    transition:
+        transform var(--transition-smooth),
+        box-shadow var(--transition-smooth),
+        background var(--transition-smooth);
+}
+
+.btn-submit svg {
+    transition: transform var(--transition-fast);
+}
+
+.btn-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 30px rgba(15, 27, 45, 0.32);
+    background: linear-gradient(135deg, #16263f 0%, #243b5c 100%);
+}
+
+.btn-submit:hover svg {
+    transform: translateX(4px);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
+
+.btn-submit:focus-visible {
+    outline: 3px solid var(--gold-500);
+    outline-offset: 3px;
+}
+
+.privacy-note {
+    font-size: 0.82rem;
+    color: var(--text-muted);
+    text-align: center;
+}
+
+.page-footer {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+    color: rgba(244, 241, 234, 0.55);
+}
+
+.dev-credit {
+    margin-top: 0.35rem;
+    color: rgba(244, 241, 234, 0.72);
+}
+
+.page-footer a {
+    color: var(--gold-500);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px dashed rgba(197, 157, 95, 0.5);
+    transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.page-footer a:hover {
+    color: #e2be82;
+    border-bottom-style: solid;
+}
+
+/* احترام به تنظیمات کاهش حرکت سیستم کاربر (دسترس‌پذیری) */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
