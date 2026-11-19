@@ -7,3 +7,4 @@ A collection of my daily HTML, CSS, and web development mini-projects.
 2. [02 - Developer Profile Card](./02-profile-card/) - Modern Dark Mode UI with HTML5 & CSS3.
 3. [03 - StreamFlow Media Studio](./03-media-studio/) - Responsive CSS Grid Dashboard with HTML5 Audio, Video & Iframe.
 4. [04 - NetPulse Server Monitor](./04-network-monitor/) - Resolution-Adaptive Grid, Boolean Attributes & Link States.
+5. [05 - Mr. Whiskers' Blog](https://alirezabaghbanicode.github.io/My-small-projects/05-whiskers-blog/) - Dark Editorial SPA Blog with Pure CSS `:target` & `:has()` Tabs.
