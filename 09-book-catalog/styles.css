@@ -1,0 +1,575 @@
+:root {
+    --bg-obsidian: #06110f;
+    --surface-card: rgba(12, 28, 25, 0.9);
+    --surface-elevated: #112622;
+    --surface-stripe: rgba(17, 38, 34, 0.42);
+    --surface-hover: rgba(223, 177, 96, 0.08);
+
+    --border-subtle: rgba(148, 184, 176, 0.14);
+    --border-brass: rgba(223, 177, 96, 0.32);
+
+    --text-primary: #f2f7f5;
+    --text-secondary: #c4d6d1;
+    --text-muted: #84a39b;
+
+    --accent-brass: #dfb160;
+    --accent-brass-bg: rgba(223, 177, 96, 0.14);
+
+    --accent-teal: #2dd4bf;
+    --accent-teal-bg: rgba(45, 212, 191, 0.13);
+
+    --accent-coral: #fb7185;
+    --accent-coral-bg: rgba(251, 113, 133, 0.13);
+
+    --accent-sky: #60a5fa;
+    --accent-sky-bg: rgba(96, 165, 250, 0.13);
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    white-space: nowrap;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+body {
+    min-height: 100dvh;
+    font-family:
+        system-ui,
+        -apple-system,
+        "Segoe UI",
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+    color: var(--text-secondary);
+    background-color: var(--bg-obsidian);
+    background-image:
+        radial-gradient(circle at 12% 10%,
+            rgba(45, 212, 191, 0.1),
+            transparent 42%),
+        radial-gradient(circle at 88% 85%,
+            rgba(223, 177, 96, 0.1),
+            transparent 44%);
+    line-height: 1.5;
+}
+
+/* Masthead */
+.masthead {
+    background: rgba(6, 17, 15, 0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border-subtle);
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+.masthead-inner {
+    width: min(100%, 72rem);
+    margin-inline: auto;
+    padding: 0.85rem clamp(1rem, 3vw, 2rem);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.brand-emblem {
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 0.55rem;
+    display: grid;
+    place-items: center;
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #06110f;
+    background: linear-gradient(135deg, #ecc57b, #c5923e);
+    box-shadow: 0 4px 14px rgba(223, 177, 96, 0.25);
+}
+
+.brand-title {
+    display: block;
+    font-size: 0.96rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    color: var(--text-primary);
+}
+
+.brand-tagline {
+    display: block;
+    font-size: 0.74rem;
+    color: var(--text-muted);
+}
+
+.status-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.28rem 0.75rem;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--accent-brass);
+    background: var(--accent-brass-bg);
+    border: 1px solid var(--border-brass);
+}
+
+.status-dot {
+    width: 0.45rem;
+    height: 0.45rem;
+    border-radius: 50%;
+    background: var(--accent-brass);
+}
+
+/* Main Container */
+.container {
+    width: min(100%, 72rem);
+    margin-inline: auto;
+    padding: clamp(1.25rem, 3.5vw, 2.25rem) clamp(1rem, 3vw, 2rem) 3rem;
+    display: grid;
+    gap: 1.5rem;
+}
+
+/* Overview Card */
+.overview-card {
+    padding: clamp(1.25rem, 2.8vw, 1.85rem);
+    background: var(--surface-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 1rem;
+    display: grid;
+    grid-template-columns: minmax(0, 1.45fr) minmax(0, 1fr);
+    gap: 1.5rem 2rem;
+    align-items: center;
+    animation: fadeIn 0.5s ease both;
+}
+
+.kicker {
+    display: inline-block;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    color: var(--accent-brass);
+    margin-bottom: 0.4rem;
+}
+
+.overview-main h1 {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: clamp(1.45rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+.overview-main p {
+    margin-top: 0.5rem;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    max-width: 54ch;
+}
+
+/* Collection Mix Box */
+.collection-mix {
+    padding: 1rem 1.15rem;
+    background: rgba(6, 17, 15, 0.55);
+    border: 1px solid var(--border-subtle);
+    border-radius: 0.85rem;
+    display: grid;
+    gap: 0.65rem;
+}
+
+.mix-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+.mix-header span {
+    color: var(--text-muted);
+}
+
+.mix-header strong {
+    color: var(--text-primary);
+    font-variant-numeric: tabular-nums;
+}
+
+.mix-bar {
+    height: 0.52rem;
+    border-radius: 999px;
+    overflow: hidden;
+    display: flex;
+    gap: 2px;
+    background: var(--surface-elevated);
+}
+
+.mix-cs {
+    background: var(--accent-teal);
+}
+
+.mix-scifi {
+    background: var(--accent-brass);
+}
+
+.mix-classic {
+    background: var(--accent-coral);
+}
+
+.mix-legend {
+    list-style: none;
+    display: grid;
+    gap: 0.3rem;
+    font-size: 0.76rem;
+    color: var(--text-secondary);
+}
+
+.mix-legend li {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+}
+
+.dot {
+    display: inline-block;
+    width: 0.52rem;
+    height: 0.52rem;
+    border-radius: 50%;
+}
+
+.dot-teal {
+    background: var(--accent-teal);
+}
+
+.dot-brass {
+    background: var(--accent-brass);
+}
+
+.dot-coral {
+    background: var(--accent-coral);
+}
+
+/* Pure-CSS Controls Bar */
+.catalog-block {
+    display: grid;
+    gap: 0.95rem;
+    animation: fadeIn 0.6s ease 0.08s both;
+}
+
+.controls-bar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.filter-group,
+.density-group {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem;
+    padding: 0.3rem;
+    background: var(--surface-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 0.75rem;
+}
+
+.density-label {
+    font-size: 0.76rem;
+    color: var(--text-muted);
+    padding-inline: 0.45rem 0.2rem;
+}
+
+.filter-group label,
+.density-group label {
+    padding: 0.36rem 0.78rem;
+    border-radius: 0.52rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    user-select: none;
+    transition:
+        background-color 0.2s ease,
+        color 0.2s ease;
+}
+
+.filter-group label:hover,
+.density-group label:hover {
+    color: var(--text-primary);
+}
+
+#g-all:checked~.controls-bar label[for="g-all"],
+#g-cs:checked~.controls-bar label[for="g-cs"],
+#g-scifi:checked~.controls-bar label[for="g-scifi"],
+#g-classic:checked~.controls-bar label[for="g-classic"],
+#view-comfy:checked~.controls-bar label[for="view-comfy"],
+#view-compact:checked~.controls-bar label[for="view-compact"] {
+    background: var(--surface-elevated);
+    color: var(--accent-brass);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
+}
+
+/* Genre Filtering Logic */
+#g-cs:checked~.table-frame tbody tr:not([data-group="cs"]),
+#g-scifi:checked~.table-frame tbody tr:not([data-group="scifi"]),
+#g-classic:checked~.table-frame tbody tr:not([data-group="classic"]) {
+    display: none;
+}
+
+/* Compact Density Logic */
+#view-compact:checked~.table-frame tbody td {
+    padding-block: 0.62rem;
+}
+
+#view-compact:checked~.table-frame tbody td:first-child::after {
+    display: none;
+}
+
+/* Table Surface */
+.table-frame {
+    background: var(--surface-card);
+    border: 1px solid var(--border-subtle);
+    border-radius: 1rem;
+    box-shadow: 0 24px 50px -20px rgba(0, 0, 0, 0.75);
+    overflow: hidden;
+}
+
+.table-scroll {
+    width: 100%;
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    min-width: 42rem;
+    border-collapse: collapse;
+    text-align: left;
+    font-variant-numeric: tabular-nums;
+}
+
+thead th {
+    position: sticky;
+    top: 0;
+    padding: 0.95rem 1.35rem;
+    font-size: 0.74rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--accent-brass);
+    background: var(--surface-elevated);
+    border-bottom: 1px solid var(--border-brass);
+}
+
+thead th:last-child,
+tbody td:last-child {
+    text-align: right;
+}
+
+tbody tr {
+    border-bottom: 1px solid rgba(148, 184, 176, 0.08);
+    transition: background-color 0.18s ease;
+}
+
+tbody tr:nth-child(even) {
+    background: var(--surface-stripe);
+}
+
+tbody tr:hover {
+    background: var(--surface-hover);
+}
+
+tbody td {
+    padding: 0.95rem 1.35rem;
+    font-size: 0.92rem;
+    transition: padding 0.2s ease;
+}
+
+/* Title Column + Non-Intrusive Subtitle via ::after */
+tbody td:first-child {
+    font-weight: 600;
+    color: var(--text-primary);
+    border-left: 3px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+tbody tr:hover td:first-child {
+    border-left-color: var(--accent-brass);
+}
+
+tbody td:first-child::after {
+    content: attr(data-sub);
+    display: block;
+    margin-top: 0.16rem;
+    font-size: 0.76rem;
+    font-weight: 400;
+    color: var(--text-muted);
+}
+
+/* Genre Column Indicators (keeps raw text clean) */
+tbody td[data-genre] {
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+tbody td[data-genre]::before {
+    content: "";
+    display: inline-block;
+    width: 0.48rem;
+    height: 0.48rem;
+    margin-right: 0.5rem;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+
+tbody td[data-genre="cs"] {
+    color: var(--accent-teal);
+}
+
+tbody td[data-genre="cs"]::before {
+    background: var(--accent-teal);
+}
+
+tbody td[data-genre="se"] {
+    color: var(--accent-sky);
+}
+
+tbody td[data-genre="se"]::before {
+    background: var(--accent-sky);
+}
+
+tbody td[data-genre="scifi"] {
+    color: var(--accent-brass);
+}
+
+tbody td[data-genre="scifi"]::before {
+    background: var(--accent-brass);
+}
+
+tbody td[data-genre="dystopia"],
+tbody td[data-genre="classic"],
+tbody td[data-genre="phil"] {
+    color: var(--accent-coral);
+}
+
+tbody td[data-genre="dystopia"]::before,
+tbody td[data-genre="classic"]::before,
+tbody td[data-genre="phil"]::before {
+    background: var(--accent-coral);
+}
+
+/* Publication Year */
+tbody td:last-child {
+    font-weight: 600;
+    color: var(--text-muted);
+    transition: color 0.18s ease;
+}
+
+tbody tr:hover td:last-child {
+    color: var(--accent-brass);
+}
+
+/* Footer */
+tfoot {
+    background: var(--surface-elevated);
+    border-top: 1px solid var(--border-brass);
+}
+
+tfoot td {
+    padding: 0.95rem 1.35rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-align: right;
+    letter-spacing: 0.03em;
+    color: var(--accent-brass);
+}
+
+@media (max-width: 820px) {
+    .overview-card {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .overview-card,
+    .catalog-block,
+    tbody tr,
+    tbody td,
+    .filter-group label,
+    .density-group label {
+        animation: none;
+        transition: none;
+    }
+}
+
+/* Site Footer */
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+.container {
+    flex: 1;
+}
+
+.site-footer {
+    border-top: 1px solid var(--border-subtle);
+    background: rgba(6, 17, 15, 0.88);
+}
+
+.footer-inner {
+    width: min(100%, 72rem);
+    margin-inline: auto;
+    padding: 1rem clamp(1rem, 3vw, 2rem);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+.footer-inner a {
+    color: var(--accent-brass);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.2s ease;
+}
+
+.footer-inner a:hover {
+    border-bottom-color: var(--accent-brass);
+}

@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Alireza Baghbani" />
+    <title>Athenaeum — Curated Book Catalog</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Top Institutional Bar -->
+    <header class="masthead">
+      <div class="masthead-inner">
+        <div class="brand">
+          <span class="brand-emblem" aria-hidden="true">A</span>
+          <div>
+            <span class="brand-title">ATHENAEUM</span>
+            <span class="brand-tagline"
+              >Digital Reference &amp; Literary Archive</span
+            >
+          </div>
+        </div>
+
+        <div class="masthead-status">
+          <span class="status-badge">
+            <span class="status-dot" aria-hidden="true"></span>
+            Catalog Verified • 2026
+          </span>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <!-- Overview & Collection Breakdown Card -->
+      <section class="overview-card">
+        <div class="overview-main">
+          <span class="kicker">Bibliographic Ledger • Index 09</span>
+          <h1>Curated Book Catalog</h1>
+          <p>
+            A structured reference library spanning distributed systems,
+            artificial intelligence, speculative fiction, and existential
+            philosophy.
+          </p>
+        </div>
+
+        <div
+          class="collection-mix"
+          aria-label="Collection Subject Distribution"
+        >
+          <div class="mix-header">
+            <span>Collection Composition</span>
+            <strong>10 Volumes</strong>
+          </div>
+          <div
+            class="mix-bar"
+            role="img"
+            aria-label="40% Computing, 40% Sci-Fi, 20% Classics"
+          >
+            <span class="mix-cs" style="width: 40%"></span>
+            <span class="mix-scifi" style="width: 40%"></span>
+            <span class="mix-classic" style="width: 20%"></span>
+          </div>
+          <ul class="mix-legend">
+            <li><i class="dot dot-teal"></i> Computing &amp; AI (40%)</li>
+            <li><i class="dot dot-brass"></i> Sci-Fi &amp; Dystopia (40%)</li>
+            <li>
+              <i class="dot dot-coral"></i> Classics &amp; Philosophy (20%)
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- Interactive Pure-CSS Controls & Book Table -->
+      <section class="catalog-block" aria-label="Book Catalog Table">
+        <!-- Genre Filter Radios -->
+        <input type="radio" name="genre" id="g-all" class="sr-only" checked />
+        <input type="radio" name="genre" id="g-cs" class="sr-only" />
+        <input type="radio" name="genre" id="g-scifi" class="sr-only" />
+        <input type="radio" name="genre" id="g-classic" class="sr-only" />
+
+        <!-- Row Density Radios -->
+        <input
+          type="radio"
+          name="density"
+          id="view-comfy"
+          class="sr-only"
+          checked
+        />
+        <input type="radio" name="density" id="view-compact" class="sr-only" />
+
+        <div class="controls-bar">
+          <div class="filter-group" role="group" aria-label="Filter by subject">
+            <label for="g-all">All (10)</label>
+            <label for="g-cs">Computing (4)</label>
+            <label for="g-scifi">Sci-Fi (4)</label>
+            <label for="g-classic">Classics (2)</label>
+          </div>
+
+          <div
+            class="density-group"
+            role="group"
+            aria-label="Table row density"
+          >
+            <span class="density-label">Density:</span>
+            <label for="view-comfy">Comfortable</label>
+            <label for="view-compact">Compact</label>
+          </div>
+        </div>
+
+        <div class="table-frame">
+          <div class="table-scroll">
+            <table>
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Author</th>
+                  <th>Genre</th>
+                  <th>Publication Year</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr data-group="cs">
+                  <td data-sub="O’Reilly Media • Distributed Systems">
+                    Designing Data-Intensive Applications
+                  </td>
+                  <td>Martin Kleppmann</td>
+                  <td data-genre="cs">Computer Science</td>
+                  <td>2017</td>
+                </tr>
+                <tr data-group="cs">
+                  <td data-sub="MIT Press • Functional Programming">
+                    Structure and Interpretation of Computer Programs
+                  </td>
+                  <td>Harold Abelson &amp; Gerald Jay Sussman</td>
+                  <td data-genre="cs">Computer Science</td>
+                  <td>1985</td>
+                </tr>
+                <tr data-group="cs">
+                  <td data-sub="Addison-Wesley • Craftsmanship">
+                    The Pragmatic Programmer
+                  </td>
+                  <td>Andrew Hunt &amp; David Thomas</td>
+                  <td data-genre="se">Software Engineering</td>
+                  <td>1999</td>
+                </tr>
+                <tr data-group="cs">
+                  <td data-sub="Pearson • Intelligent Agents">
+                    Artificial Intelligence: A Modern Approach
+                  </td>
+                  <td>Stuart Russell &amp; Peter Norvig</td>
+                  <td data-genre="cs">Computer Science</td>
+                  <td>1995</td>
+                </tr>
+                <tr data-group="scifi">
+                  <td data-sub="Chilton Books • Arrakis Chronicles">Dune</td>
+                  <td>Frank Herbert</td>
+                  <td data-genre="scifi">Science Fiction</td>
+                  <td>1965</td>
+                </tr>
+                <tr data-group="scifi">
+                  <td data-sub="Ace Books • Hainish Cycle">
+                    The Left Hand of Darkness
+                  </td>
+                  <td>Ursula K. Le Guin</td>
+                  <td data-genre="scifi">Science Fiction</td>
+                  <td>1969</td>
+                </tr>
+                <tr data-group="scifi">
+                  <td data-sub="Ballantine Books • Hard Sci-Fi">
+                    Project Hail Mary
+                  </td>
+                  <td>Andy Weir</td>
+                  <td data-genre="scifi">Science Fiction</td>
+                  <td>2021</td>
+                </tr>
+                <tr data-group="scifi">
+                  <td data-sub="Secker &amp; Warburg • Political Allegory">
+                    1984
+                  </td>
+                  <td>George Orwell</td>
+                  <td data-genre="dystopia">Dystopian Fiction</td>
+                  <td>1949</td>
+                </tr>
+                <tr data-group="classic">
+                  <td data-sub="The Russian Messenger • Psychological Novel">
+                    Crime and Punishment
+                  </td>
+                  <td>Fyodor Dostoevsky</td>
+                  <td data-genre="classic">Classic Literature</td>
+                  <td>1866</td>
+                </tr>
+                <tr data-group="classic">
+                  <td data-sub="Éditions Gallimard • Absurdism">
+                    The Myth of Sisyphus
+                  </td>
+                  <td>Albert Camus</td>
+                  <td data-genre="phil">Philosophy</td>
+                  <td>1942</td>
+                </tr>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="4">Total Books: 10</td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- Developer Attribution Footer -->
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <span>Athenaeum Bibliographic Archive</span>
+        <span>
+          Designed &amp; Built by
+          <a
+            href="https://github.com/alirezabaghbanicode/My-small-projects"
+            target="_blank"
+            rel="noopener noreferrer"
+            >Alireza Baghbani</a
+          >
+        </span>
+      </div>
+    </footer>
+  </body>
+</html>
