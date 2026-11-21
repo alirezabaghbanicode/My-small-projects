@@ -1,0 +1,602 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MATH-204 | Calculus II Final Exam Analytics</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="dashboard">
+      <!-- Top Institutional Report Header -->
+      <header class="report-header animate-in" style="--delay: 0ms">
+        <div class="header-main">
+          <div class="course-meta">
+            <span class="course-code">MATH-204</span>
+            <span class="meta-dot">•</span>
+            <span>Fall Semester 2026</span>
+            <span class="meta-dot">•</span>
+            <span>Dept. of Mathematics</span>
+          </div>
+          <h1>Calculus II — Final Exam &amp; Grade Analytics</h1>
+          <p class="subtitle">
+            Instructor: <strong>Prof. H. Vance</strong> &nbsp;|&nbsp; Cohort: 8
+            Enrolled Students
+          </p>
+        </div>
+        <div class="header-status">
+          <span class="status-pill">
+            <span class="pulse-dot" aria-hidden="true"></span>
+            Verified Official Registry
+          </span>
+          <span class="updated-time">Passing Threshold: 60.0%</span>
+        </div>
+      </header>
+
+      <!-- Main Two-Column Workspace: Left = Data Table, Right = Circular Analytics -->
+      <div class="workspace-grid">
+        <!-- LEFT COLUMN: Filterable Student Roster -->
+        <section
+          class="roster-column animate-in"
+          style="--delay: 90ms"
+          aria-label="Student Grade Roster"
+        >
+          <input
+            type="radio"
+            name="roster-filter"
+            id="filter-all"
+            class="sr-only"
+            checked
+          />
+          <input
+            type="radio"
+            name="roster-filter"
+            id="filter-distinction"
+            class="sr-only"
+          />
+          <input
+            type="radio"
+            name="roster-filter"
+            id="filter-passed"
+            class="sr-only"
+          />
+          <input
+            type="radio"
+            name="roster-filter"
+            id="filter-risk"
+            class="sr-only"
+          />
+
+          <div class="toolbar">
+            <div class="toolbar-title">
+              <h2>Student Performance Roster</h2>
+              <p>Filter records by academic standing</p>
+            </div>
+
+            <div class="filter-tabs" role="group" aria-label="Filter students">
+              <label for="filter-all">All (8)</label>
+              <label for="filter-distinction">Distinction (2)</label>
+              <label for="filter-passed">Passed (5)</label>
+              <label for="filter-risk">At Risk (1)</label>
+            </div>
+          </div>
+
+          <div class="table-card">
+            <div class="table-scroll">
+              <table>
+                <thead>
+                  <tr>
+                    <th scope="col">Student</th>
+                    <th scope="col" class="num">Midterm</th>
+                    <th scope="col" class="num">Final</th>
+                    <th scope="col">Weighted</th>
+                    <th scope="col" class="center">Grade</th>
+                    <th scope="col" class="right">Standing</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr data-standing="distinction">
+                    <td>
+                      <div class="student-cell">
+                        <span class="avatar avatar-emerald" aria-hidden="true"
+                          >LP</span
+                        >
+                        <div>
+                          <div class="student-name">Patel, Liam</div>
+                          <div class="student-id">#CAL-2043 • Honors</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="num">94.0</td>
+                    <td class="num strong-num">95.0</td>
+                    <td>
+                      <div class="progress-wrap">
+                        <div class="progress-track" aria-hidden="true">
+                          <span
+                            class="progress-fill fill-emerald"
+                            style="--score: 94.7%"
+                          ></span>
+                        </div>
+                        <span class="progress-val">94.7%</span>
+                      </div>
+                    </td>
+                    <td class="center">
+                      <span class="letter-badge letter-a">A</span>
+                    </td>
+                    <td class="right">
+                      <span class="standing-pill standing-distinction"
+                        >Distinction</span
+                      >
+                    </td>
+                  </tr>
+
+                  <tr data-standing="distinction">
+                    <td>
+                      <div class="student-cell">
+                        <span class="avatar avatar-emerald" aria-hidden="true"
+                          >SD</span
+                        >
+                        <div>
+                          <div class="student-name">Doe, Samantha</div>
+                          <div class="student-id">#CAL-2041 • Honors</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="num">90.0</td>
+                    <td class="num strong-num">92.0</td>
+                    <td>
+                      <div class="progress-wrap">
+                        <div class="progress-track" aria-hidden="true">
+                          <span
+                            class="progress-fill fill-emerald"
+                            style="--score: 91.4%"
+                          ></span>
+                        </div>
+                        <span class="progress-val">91.4%</span>
+                      </div>
+                    </td>
+                    <td class="center">
+                      <span class="letter-badge letter-a">A</span>
+                    </td>
+                    <td class="right">
+                      <span class="standing-pill standing-distinction"
+                        >Distinction</span
+                      >
+                    </td>
+                  </tr>
+
+                  <tr data-standing="passed">
+                    <td>
+                      <div class="student-cell">
+                        <span class="avatar avatar-sky" aria-hidden="true"
+                          >EC</span
+                        >
+                        <div>
+                          <div class="student-name">Chen, Elena</div>
+                          <div class="student-id">#CAL-2045 • Regular</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="num">86.0</td>
+                    <td class="num strong-num">89.0</td>
+                    <td>
+                      <div class="progress-wrap">
+                        <div class="progress-track" aria-hidden="true">
+                          <span
+                            class="progress-fill fill-sky"
+                            style="--score: 88.1%"
+                          ></span>
+                        </div>
+                        <span class="progress-val">88.1%</span>
+                      </div>
+                    </td>
+                    <td class="center">
+                      <span class="letter-badge letter-b">B+</span>
+                    </td>
+                    <td class="right">
+                      <span class="standing-pill standing-passed">Passed</span>
+                    </td>
+                  </tr>
+
+                  <tr data-standing="passed">
+                    <td>
+                      <div class="student-cell">
+                        <span class="avatar avatar-sky" aria-hidden="true"
+                          >MR</span
+                        >
+                        <div>
+                          <div class="student-name">Rodriguez, Marcus</div>
+                          <div class="student-id">#CAL-2042 • Regular</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="num">85.0</td>
+                    <td class="num strong-num">88.0</td>
+                    <td>
+                      <div class="progress-wrap">
+                        <div class="progress-track" aria-hidden="true">
+                          <span
+                            class="progress-fill fill-sky"
+                            style="--score: 87.1%"
+                          ></span>
+                        </div>
+                        <span class="progress-val">87.1%</span>
+                      </div>
+                    </td>
+                    <td class="center">
+                      <span class="letter-badge letter-b">B+</span>
+                    </td>
+                    <td class="right">
+                      <span class="standing-pill standing-passed">Passed</span>
+                    </td>
+                  </tr>
+
+                  <tr data-standing="passed">
+                    <td>
+                      <div class="student-cell">
+                        <span class="avatar avatar-sky" aria-hidden="true"
+                          >NW</span
+                        >
+                        <div>
+                          <div class="student-name">Williams, Natalie</div>
+                          <div class="student-id">#CAL-2044 • Regular</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="num">80.0</td>
+                    <td class="num strong-num">83.0</td>
+                    <td>
+                      <div class="progress-wrap">
+                        <div class="progress-track" aria-hidden="true">
+                          <span
+                            class="progress-fill fill-sky"
+                            style="--score: 82.1%"
+                          ></span>
+                        </div>
+                        <span class="progress-val">82.1%</span>
+                      </div>
+                    </td>
+                    <td class="center">
+                      <span class="letter-badge letter-b">B</span>
+                    </td>
+                    <td class="right">
+                      <span class="standing-pill standing-passed">Passed</span>
+                    </td>
+                  </tr>
+
+                  <tr data-standing="passed">
+                    <td>
+                      <div class="student-cell">
+                        <span class="avatar avatar-amber" aria-hidden="true"
+                          >JT</span
+                        >
+                        <div>
+                          <div class="student-name">Thompson, Jane</div>
+                          <div class="student-id">#CAL-2046 • Regular</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="num">74.0</td>
+                    <td class="num strong-num">77.0</td>
+                    <td>
+                      <div class="progress-wrap">
+                        <div class="progress-track" aria-hidden="true">
+                          <span
+                            class="progress-fill fill-amber"
+                            style="--score: 76.1%"
+                          ></span>
+                        </div>
+                        <span class="progress-val">76.1%</span>
+                      </div>
+                    </td>
+                    <td class="center">
+                      <span class="letter-badge letter-c">C+</span>
+                    </td>
+                    <td class="right">
+                      <span class="standing-pill standing-passed">Passed</span>
+                    </td>
+                  </tr>
+
+                  <tr data-standing="passed">
+                    <td>
+                      <div class="student-cell">
+                        <span class="avatar avatar-amber" aria-hidden="true"
+                          >DK</span
+                        >
+                        <div>
+                          <div class="student-name">Kim, David</div>
+                          <div class="student-id">#CAL-2047 • Regular</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="num">68.0</td>
+                    <td class="num strong-num">71.0</td>
+                    <td>
+                      <div class="progress-wrap">
+                        <div class="progress-track" aria-hidden="true">
+                          <span
+                            class="progress-fill fill-amber"
+                            style="--score: 70.1%"
+                          ></span>
+                        </div>
+                        <span class="progress-val">70.1%</span>
+                      </div>
+                    </td>
+                    <td class="center">
+                      <span class="letter-badge letter-c">C</span>
+                    </td>
+                    <td class="right">
+                      <span class="standing-pill standing-passed">Passed</span>
+                    </td>
+                  </tr>
+
+                  <tr data-standing="risk">
+                    <td>
+                      <div class="student-cell">
+                        <span class="avatar avatar-rose" aria-hidden="true"
+                          >AD</span
+                        >
+                        <div>
+                          <div class="student-name">Davis, Alex</div>
+                          <div class="student-id">#CAL-2048 • Review</div>
+                        </div>
+                      </div>
+                    </td>
+                    <td class="num">58.0</td>
+                    <td class="num strong-num">54.0</td>
+                    <td>
+                      <div class="progress-wrap">
+                        <div class="progress-track" aria-hidden="true">
+                          <span
+                            class="progress-fill fill-rose"
+                            style="--score: 55.2%"
+                          ></span>
+                        </div>
+                        <span class="progress-val">55.2%</span>
+                      </div>
+                    </td>
+                    <td class="center">
+                      <span class="letter-badge letter-f">F</span>
+                    </td>
+                    <td class="right">
+                      <span class="standing-pill standing-risk"
+                        >Retake Req.</span
+                      >
+                    </td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <th scope="row">Cohort Mean (n = 8)</th>
+                    <td class="num">79.4</td>
+                    <td class="num">81.1</td>
+                    <td>
+                      <span class="foot-highlight">80.6% Avg</span>
+                    </td>
+                    <td class="center">B-</td>
+                    <td class="right">87.5% Pass</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- RIGHT COLUMN: Circular Analytics & Statistical Panel -->
+        <aside
+          class="analytics-sidebar"
+          aria-label="Circular Statistical Overview"
+        >
+          <!-- 1. Multi-Segment Animated Donut Chart -->
+          <section class="panel-card animate-in" style="--delay: 160ms">
+            <div class="panel-head">
+              <div>
+                <h2>Grade Distribution</h2>
+                <p>Cohort breakdown by letter grade</p>
+              </div>
+              <span class="panel-badge">Donut Chart</span>
+            </div>
+
+            <div class="donut-layout">
+              <div class="donut-box">
+                <svg
+                  class="donut-svg"
+                  viewBox="0 0 110 110"
+                  role="img"
+                  aria-label="Donut chart: 25% Grade A, 37.5% Grade B, 25% Grade C, 12.5% Grade F"
+                >
+                  <circle class="donut-track" cx="55" cy="55" r="42" />
+                  <!-- Grade A: 25% -> 65.97 arc (63 visible + 3 gap) -->
+                  <circle
+                    class="donut-seg seg-emerald"
+                    cx="55"
+                    cy="55"
+                    r="42"
+                    style="--dash: 63; --offset: 0; --seg-delay: 250ms"
+                  />
+                  <!-- Grade B/B+: 37.5% -> 98.96 arc (96 visible + 3 gap) -->
+                  <circle
+                    class="donut-seg seg-sky"
+                    cx="55"
+                    cy="55"
+                    r="42"
+                    style="--dash: 96; --offset: -65.97; --seg-delay: 400ms"
+                  />
+                  <!-- Grade C/C+: 25% -> 65.97 arc (63 visible + 3 gap) -->
+                  <circle
+                    class="donut-seg seg-amber"
+                    cx="55"
+                    cy="55"
+                    r="42"
+                    style="--dash: 63; --offset: -164.93; --seg-delay: 550ms"
+                  />
+                  <!-- Grade F: 12.5% -> 32.99 arc (30 visible + 3 gap) -->
+                  <circle
+                    class="donut-seg seg-rose"
+                    cx="55"
+                    cy="55"
+                    r="42"
+                    style="--dash: 30; --offset: -230.9; --seg-delay: 700ms"
+                  />
+                </svg>
+                <div class="donut-center">
+                  <strong>8</strong>
+                  <span>Students</span>
+                </div>
+              </div>
+
+              <ul class="donut-legend">
+                <li>
+                  <span class="leg-left">
+                    <span class="dot dot-emerald"></span>
+                    <span>Grade A (90–100)</span>
+                  </span>
+                  <strong>25.0% <em>(2)</em></strong>
+                </li>
+                <li>
+                  <span class="leg-left">
+                    <span class="dot dot-sky"></span>
+                    <span>Grade B / B+ (80–89)</span>
+                  </span>
+                  <strong>37.5% <em>(3)</em></strong>
+                </li>
+                <li>
+                  <span class="leg-left">
+                    <span class="dot dot-amber"></span>
+                    <span>Grade C / C+ (70–79)</span>
+                  </span>
+                  <strong>25.0% <em>(2)</em></strong>
+                </li>
+                <li>
+                  <span class="leg-left">
+                    <span class="dot dot-rose"></span>
+                    <span>Grade F (&lt; 60)</span>
+                  </span>
+                  <strong>12.5% <em>(1)</em></strong>
+                </li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- 2. Circular Radial Progress Gauges (3 Key Rates) -->
+          <section class="panel-card animate-in" style="--delay: 260ms">
+            <div class="panel-head">
+              <div>
+                <h2>Performance Gauges</h2>
+                <p>Key cohort success benchmarks</p>
+              </div>
+              <span class="panel-badge">Radial KPIs</span>
+            </div>
+
+            <div class="rings-grid">
+              <!-- Pass Rate: 87.5% -> C=226.19, offset=28.27 -->
+              <div class="ring-item">
+                <div class="ring-box">
+                  <svg class="ring-svg" viewBox="0 0 88 88" aria-hidden="true">
+                    <circle class="ring-track" cx="44" cy="44" r="36" />
+                    <circle
+                      class="ring-fill ring-emerald"
+                      cx="44"
+                      cy="44"
+                      r="36"
+                      style="--target-offset: 28.27; --ring-delay: 350ms"
+                    />
+                  </svg>
+                  <span class="ring-val">87.5%</span>
+                </div>
+                <strong class="ring-title">Pass Rate</strong>
+                <span class="ring-sub">7 of 8 Passed</span>
+              </div>
+
+              <!-- Weighted Avg: 80.6% -> C=226.19, offset=43.88 -->
+              <div class="ring-item">
+                <div class="ring-box">
+                  <svg class="ring-svg" viewBox="0 0 88 88" aria-hidden="true">
+                    <circle class="ring-track" cx="44" cy="44" r="36" />
+                    <circle
+                      class="ring-fill ring-sky"
+                      cx="44"
+                      cy="44"
+                      r="36"
+                      style="--target-offset: 43.88; --ring-delay: 500ms"
+                    />
+                  </svg>
+                  <span class="ring-val">80.6%</span>
+                </div>
+                <strong class="ring-title">Weighted Avg</strong>
+                <span class="ring-sub">+1.2% vs Mid</span>
+              </div>
+
+              <!-- Distinction Rate: 25.0% -> C=226.19, offset=169.64 -->
+              <div class="ring-item">
+                <div class="ring-box">
+                  <svg class="ring-svg" viewBox="0 0 88 88" aria-hidden="true">
+                    <circle class="ring-track" cx="44" cy="44" r="36" />
+                    <circle
+                      class="ring-fill ring-violet"
+                      cx="44"
+                      cy="44"
+                      r="36"
+                      style="--target-offset: 169.64; --ring-delay: 650ms"
+                    />
+                  </svg>
+                  <span class="ring-val">25.0%</span>
+                </div>
+                <strong class="ring-title">Honors Rate</strong>
+                <span class="ring-sub">Score ≥ 90%</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- 3. Exam Weight Pie & Dispersion Statistics -->
+          <section class="panel-card animate-in" style="--delay: 360ms">
+            <div class="panel-head">
+              <div>
+                <h2>Statistical Dispersion</h2>
+                <p>Exam weighting &amp; spread metrics</p>
+              </div>
+              <span class="panel-badge">Summary</span>
+            </div>
+
+            <div class="stats-split">
+              <!-- Conic Pie Chart for 30% Midterm / 70% Final -->
+              <div class="pie-block">
+                <div
+                  class="conic-pie"
+                  role="img"
+                  aria-label="Exam weight split: 70% Final Exam, 30% Midterm"
+                >
+                  <span class="pie-hole">70/30</span>
+                </div>
+                <div class="pie-labels">
+                  <span><i class="dot dot-sky"></i> Final (70%)</span>
+                  <span><i class="dot dot-violet"></i> Midterm (30%)</span>
+                </div>
+              </div>
+
+              <!-- 2x2 Statistical Metrics Grid -->
+              <div class="mini-stats-grid">
+                <div class="mini-stat">
+                  <span>Median Score</span>
+                  <strong>85.5</strong>
+                </div>
+                <div class="mini-stat">
+                  <span>Std. Deviation</span>
+                  <strong>&sigma; 12.6</strong>
+                </div>
+                <div class="mini-stat">
+                  <span>Score Range</span>
+                  <strong>54 – 95</strong>
+                </div>
+                <div class="mini-stat">
+                  <span>Top Performer</span>
+                  <strong>95.0 (A)</strong>
+                </div>
+              </div>
+            </div>
+          </section>
+        </aside>
+      </div>
+    </main>
+  </body>
+</html>
